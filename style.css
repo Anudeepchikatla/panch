@@ -1,0 +1,563 @@
+/* =====================
+   GLOBAL VARIABLES
+===================== */
+:root {
+  --primary: #3E6B48;
+  --secondary: #C9A14A;
+  --dark: #2E2E2E;
+  --light: #FFFDF7;
+  --muted: #777;
+  --card-bg: #ffffff;
+  --border: #e5e5e5;
+}
+
+/* =====================
+   RESET & BASE
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--light);
+  color: var(--dark);
+  font-family: 'Inter', 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+/* =====================
+   NAVBAR
+===================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  padding: 18px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.navbar nav a {
+  margin-left: 28px;
+  font-weight: 500;
+  position: relative;
+}
+
+.navbar nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: 0.3s;
+}
+
+.navbar nav a:hover::after {
+  width: 100%;
+}
+
+/* =====================
+   HERO SECTION
+===================== */
+.hero {
+  background: linear-gradient(
+      rgba(62,107,72,0.85),
+      rgba(62,107,72,0.85)
+    ),
+    url("../assets/sf.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 120px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* =====================
+   BUTTONS
+===================== */
+button {
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+  padding: 10px 24px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.primary-btn {
+  background: var(--secondary);
+  color: #fff;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(218, 52, 63, 0.009);
+}
+
+.secondary-btn {
+  background: var(--primary);
+  color: #fff;
+}
+
+.secondary-btn:hover {
+  opacity: 0.9;
+}
+
+/* =====================
+   SECTIONS
+===================== */
+section {
+  padding: 60px 50px;
+}
+
+section h2 {
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+/* =====================
+   FILTER BAR
+===================== */
+.filter-bar {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.filter-bar button {
+  background: #f3f3f3;
+  color: var(--dark);
+}
+
+.filter-bar button:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* =====================
+   PRODUCT GRID
+===================== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  transition: 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.product-card h3 {
+  font-size: 18px;
+  margin: 12px 0 5px;
+}
+
+.product-card p {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.product-card button {
+  margin-top: 10px;
+}
+
+/* =====================
+   PRODUCT DETAIL
+===================== */
+.product-detail {
+  max-width: 900px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.product-detail h2 {
+  font-size: 32px;
+}
+
+.product-detail p {
+  color: var(--muted);
+  margin: 15px 0;
+}
+
+/* =====================
+   CART
+===================== */
+.cart-item {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.cart-item button {
+  background: var(--primary);
+  color: #fff;
+  padding: 4px 12px;
+  margin: 0 6px;
+}
+
+/* =====================
+   SUMMARY / CHECKOUT
+===================== */
+.summary-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 18px;
+  max-width: 520px;
+  margin: auto;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+}
+
+.summary-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.summary-box p {
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+
+/* =====================
+   FORMS
+===================== */
+form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+form button {
+  width: 100%;
+  background: var(--primary);
+  color: #fff;
+}
+
+/* =====================
+   TRUST BADGES
+===================== */
+.trust {
+  background: #FAFAFA;
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+  background: #222;
+  color: #ccc;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+
+  section {
+    padding: 40px 20px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .product-detail {
+    grid-template-columns: 1fr;
+  }
+}
+/* =====================
+   CART GRID
+===================== */
+.cart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.cart-card {
+  display: flex;
+  gap: 15px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.cart-card img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.cart-info h4 {
+  font-size: 18px;
+}
+
+.qty-box {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.qty-box button {
+  background: var(--primary);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.qty-box span {
+  margin: 0 10px;
+  font-weight: 600;
+}
+
+.cart-summary {
+  margin-top: 30px;
+  padding: 25px;
+  background: linear-gradient(135deg, #3E6B48, #5d8f6c);
+  color: #fff;
+  border-radius: 18px;
+  text-align: center;
+}
+
+/* =====================
+   CHECKOUT UI
+===================== */
+.checkout-wrap {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7f6, #eef3ef);
+}
+
+.checkout-card {
+  background: #fff;
+  padding: 35px;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.checkout-card h2 {
+  margin-bottom: 10px;
+}
+
+.checkout-card .muted {
+  color: #777;
+  margin-bottom: 20px;
+}
+/* =====================
+   HERO LARGE
+===================== */
+.hero-bg {
+  min-height: 90vh;
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("assets/farmmm.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 700px;
+}
+
+.hero-content h1 {
+  font-size: 56px;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 20px;
+  color: #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* =====================
+   CATEGORY SECTION
+===================== */
+.category-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 80px 50px;
+}
+
+.category-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.category-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.category-card:hover img {
+  transform: scale(1.08);
+}
+
+.category-card h3 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* =====================
+   WHY US
+===================== */
+.why-us {
+  background: #f8f9f8;
+  text-align: center;
+}
+
+.why-us h2 {
+  font-size: 34px;
+  margin-bottom: 40px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* =====================
+   LANDSCAPE BANNER
+===================== */
+.banner-section {
+  min-height: 60vh;
+  background: url("assets/sf1.jpg") center/cover no-repeat;
+  position: relative;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-overlay h2 {
+  font-size: 44px;
+}
+
+.banner-overlay p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 40px;
+  }
+
+  .banner-overlay h2 {
+    font-size: 32px;
+  }
+}
+
+.logo img {
+  filter: drop-shadow(0 0 6px rgba(255, 204, 0, 0.6));
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap:0;
+  font-size: 17px;
+  font-weight: bold;
+  color:#222; /* golden tone */
+}
+
+.logo img {
+  width: 100px;
+  height: auto;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Summary</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="summary-box">
+  <h2>Order Summary</h2>
+  <div id="summary"></div>
+  <h3 id="grandTotal"></h3>
+  <a href="checkout.html" class="primary-btn">Checkout</a>
+</section>
+
+<script src="js/data.js"></script>
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let total = 0;
+
+cart.forEach(i => {
+  let p = i.combo ? i : products.find(x => x.id === i.id);
+  let price = p.price * i.qty;
+  total += price;
+  document.getElementById("summary").innerHTML += `<p>${p.name || 'Combo'} x ${i.qty} = ₹${price}</p>`;
+});
+
+document.getElementById("grandTotal").innerText = "Grand Total: ₹" + total;
+</script>
+<script src="data.js"></script>
+<script src="main.js"></script>
+<script src="data.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart | Deep Farms</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+ <div class="logo">
+    <img src="assets/logo.png" alt="Deep Farms Logo">
+    <span>Pancholi's Oils & Spices</span>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart 🛒</a>
+  </nav>
+</header>
+
+<section>
+  <h2>Your Shopping Cart</h2>
+
+  <div id="cartItems" class="cart-grid"></div>
+
+  <div class="cart-summary">
+    <h3 id="total"></h3>
+    <a href="checkout.html" class="primary-btn">Proceed to Checkout</a>
+  </div>
+</section>
+
+<script src="data.js"></script>
+<script src="cart.js"></script>
+
+<script>
+let total = 0;
+const container = document.getElementById("cartItems");
+
+if (cart.length === 0) {
+  container.innerHTML = "<p>Your cart is empty 🛒</p>";
+}
+
+cart.forEach(item => {
+  const p = item.combo ? item : products.find(pr => pr.id === item.id);
+  const sub = p.price * item.qty;
+  total += sub;
+
+  container.innerHTML += `
+    <div class="cart-card">
+      <img src="${p.image || 'assets/combo.jpg'}">
+      <div class="cart-info">
+        <h4>${p.name || "Combo Pack"}</h4>
+        <p>₹${p.price}</p>
+
+        <div class="qty-box">
+          <button onclick="updateQty(${item.id || -1},-1)">−</button>
+          <span>${item.qty}</span>
+          <button onclick="updateQty(${item.id || -1},1)">+</button>
+        </div>
+
+        <b>Subtotal: ₹${sub}</b>
+      </div>
+    </div>
+  `;
+});
+
+document.getElementById("total").innerText = "Total Amount: ₹" + total;
+</script>
+
+</body>
+</html>

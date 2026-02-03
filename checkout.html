@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout | PureHarvest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="assets/logo.png" alt="Deep Farms Logo">
+    <span>Pancholi's Oils & Spices</span>
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart 🛒</a>
+  </nav>
+</header>
+
+<section class="checkout-wrap">
+  <div class="checkout-card">
+    <h2>🧾 Checkout</h2>
+    <p class="muted">Fast • Secure • Trusted</p>
+
+    <form onsubmit="placeOrder(event)">
+      <input type="text" placeholder="👤 Full Name" required>
+      <input type="text" placeholder="🏠 Delivery Address" required>
+      <input type="tel" placeholder="📞 Mobile Number" required>
+
+      <button class="primary-btn">Place Order</button>
+    </form>
+  </div>
+</section>
+
+<script>
+function placeOrder(e){
+  e.preventDefault();
+  localStorage.removeItem("cart");
+  alert("Order placed successfully ✅");
+  location.href="index.html";
+}
+</script>
+
+</body>
+</html>
